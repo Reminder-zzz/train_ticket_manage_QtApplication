@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+RC_FILE = logo.rc
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
