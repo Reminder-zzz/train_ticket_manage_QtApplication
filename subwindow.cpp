@@ -216,7 +216,7 @@ void subwindow::on_refundButton_clicked(bool checked)
 
 void subwindow::on_submitPushButton_clicked()
 {
-    if(ui->calendarWidget->selectedDate()<QDate::currentDate()){
+    if(ui->calendarWidget_2->selectedDate()<QDate::currentDate()){
         QMessageBox::warning(this,"错误","您购买的车票已过期",QMessageBox::Cancel);
     }else if(this->index.column()!=8){
         QMessageBox::warning(this,"错误","您只能修改始发时间",QMessageBox::Cancel);

@@ -29,11 +29,15 @@ void Form::on_passengerButtonBox_accepted()
 {
     QString passengerName=ui->passengerName->text();
     QString passengerAccount=ui->passengerAccount->text();
+    bool ok;
+    int isText=passengerAccount.toInt(&ok,10);
     passenger aPassenger(passengerName,passengerAccount);
     if(passengerName==""||passengerAccount==""){//用户无输入
         QMessageBox::warning(this,"警告","请输入姓名和身份证号",QMessageBox::Ok);
     }
-    else{
+    else if(!ok){
+        QMessageBox::warning(this,"警告","身份证号必须是数字",QMessageBox::Ok);
+    }else{
         this->vsubwindow->getModel()->setFilter(QObject::tr("id='%1'").arg(passengerAccount));
         this->vsubwindow->getModel()->select();//只看自己
         if(this->vsubwindow->getModel()->rowCount()!=0){
